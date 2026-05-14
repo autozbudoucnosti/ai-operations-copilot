@@ -1,0 +1,73 @@
+import type { OperationsAnalysis } from "@/lib/schemas";
+
+export const sampleAIResult: OperationsAnalysis = {
+  company: "Stavební servis Novák s.r.o.",
+  summary:
+    "Zákazník Petr Dvořák čeká čtvrtý den na cenovou nabídku na opravu opěrné zídky a výměnu dlažby. Nabídka nejde připravit, protože technik Martin neposlal fotky ani rozměry z místa. Kancelář neví, zda má zákazníkovi odpovědět bez kompletních podkladů, a hrozí, že zákazník osloví konkurenci.",
+  priority: "high",
+  actionItems: [
+    {
+      owner: "Martin / technik",
+      task: "Poslat fotky opěrné zídky, vstupu a všechny naměřené rozměry.",
+      dueDate: "dnes do 11:00",
+      reason: "Bez fotek a rozměrů nejde spočítat materiál ani rozsah práce."
+    },
+    {
+      owner: "Lucie / kancelář",
+      task: "Poslat zákazníkovi omluvu a slíbit konkrétní čas dalšího vyjádření.",
+      dueDate: "dnes do 10:00",
+      reason: "Zákazník už čeká 4 dny a zvažuje konkurenci."
+    },
+    {
+      owner: "Jednatel",
+      task: "Rozhodnout, zda nabídku připravit jako orientační, pokud technik podklady nestihne dodat.",
+      dueDate: "dnes do 12:30",
+      reason: "Firma potřebuje zákazníkovi ukázat další krok i při chybějících podkladech."
+    },
+    {
+      owner: "Kancelář",
+      task: "Po obdržení podkladů připravit cenovou nabídku a poslat ji zákazníkovi.",
+      dueDate: "dnes do 16:00",
+      reason: "Rychlé dodání nabídky snižuje riziko ztráty zakázky."
+    }
+  ],
+  blockers: [
+    {
+      issue: "Chybí fotky a rozměry od technika.",
+      risk: "Nabídka může být nepřesná nebo ji nepůjde připravit včas.",
+      suggestedFix: "Zavolat technikovi a nastavit pevný termín dodání podkladů ještě dopoledne."
+    },
+    {
+      issue: "Kancelář nemá instrukci, zda zákazníkovi odpovědět bez nabídky.",
+      risk: "Zákazník může mít pocit, že firma nereaguje, a vybere konkurenci.",
+      suggestedFix: "Poslat krátkou omluvu, vysvětlit chybějící podklady a dát konkrétní čas dalšího updatu."
+    }
+  ],
+  customerReply: {
+    subject: "Cenová nabídka na opravu zídky a dlažby",
+    body:
+      "Dobrý den, pane Dvořáku,\n\nomlouváme se, že cenová nabídka ještě neodešla. Podklady z návštěvy technika dnes dopoledne urgentně doplňujeme, abychom nabídku neposlali nepřesně.\n\nNejpozději dnes do 15:00 Vám pošleme buď hotovou cenovou nabídku, nebo jasné potvrzení, co ještě chybí a kdy ji dokončíme.\n\nDěkujeme za trpělivost.\n\nStavební servis Novák s.r.o."
+  },
+  recommendedNextStep:
+    "Ihned poslat zákazníkovi omluvu s konkrétním časem dalšího vyjádření a paralelně získat chybějící podklady od technika.",
+  automationSuggestions: [
+    {
+      name: "Hlídání opožděných nabídek",
+      trigger: "Poptávka nemá odeslanou nabídku do 48 hodin od návštěvy technika.",
+      action: "Vytvořit urgentní úkol pro technika a upozornění pro kancelář.",
+      businessValue: "Firma neztrácí zakázky kvůli tichu v komunikaci."
+    },
+    {
+      name: "Kontrola povinných podkladů",
+      trigger: "Technik označí návštěvu jako hotovou.",
+      action: "Zkontrolovat, zda jsou vyplněné fotky, rozměry a stručný popis rozsahu.",
+      businessValue: "Kancelář může rychleji připravit přesnou nabídku."
+    },
+    {
+      name: "Automatická omluva při zpoždění",
+      trigger: "Zákazník čeká déle než slíbený termín.",
+      action: "Připravit krátký e-mail s omluvou, stavem věci a časem dalšího updatu.",
+      businessValue: "Zákazník ví, že se zakázka řeší, i když nabídka ještě není hotová."
+    }
+  ]
+};
