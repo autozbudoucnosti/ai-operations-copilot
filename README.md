@@ -4,14 +4,15 @@ Praktické demo pro malé a střední české firmy. Aplikace ukazuje, jak můž
 
 ## Co to je
 
-Interní dashboard pro modelovou firmu Stavební servis Novák s.r.o. Není to chatbot. Cílem je ukázat jednoduchý, nasaditelný nástroj pro administrativu a provoz, kde AI připravuje výstupy a člověk je schvaluje.
+Interní dashboard s několika modelovými scénáři pro české firmy. Není to chatbot. Cílem je ukázat jednoduchý, nasaditelný nástroj pro administrativu a provoz, kde AI připravuje výstupy a člověk je schvaluje.
 
 ## Průběh dema
 
-1. Uživatel vidí firemní vstupy: e-mail zákazníka, interní poznámku, seznam úkolů a poptávku.
-2. Klikne na `Zpracovat nové vstupy`.
-3. AI vytvoří shrnutí situace, prioritu, blokery, akční kroky, návrh e-mailu a návrhy automatizace.
-4. Pokud není dostupný OpenAI klíč nebo API selže, demo použije vzorový výstup a zobrazí české upozornění.
+1. Uživatel vybere demo scénář, například stavební firmu, účetní firmu, logistiku, servis nebo e-shop.
+2. Vidí čtyři krátké firemní vstupy: e-mail, interní poznámku, seznam úkolů a související dokument.
+3. Klikne na `Zpracovat nové vstupy`.
+4. AI vytvoří shrnutí situace, prioritu, blokery, akční kroky, návrh e-mailu a návrhy automatizace.
+5. Pokud není dostupný OpenAI klíč nebo API selže, demo použije bezpečný vzorový výstup pro vybraný scénář.
 
 ## Obchodní problém
 
@@ -83,4 +84,4 @@ Možnosti nasazení:
 
 ## Spolehlivost dema
 
-Demo musí fungovat i bez `OPENAI_API_KEY`. `/api/process` proto při chybě nebo chybějícím klíči vrací validní vzorový výstup `sampleAIResult` s příznakem demo režimu. Reálná AI odpověď se používá pouze tehdy, když projde strukturou `operationsAnalysisSchema`.
+Demo musí fungovat i bez `OPENAI_API_KEY`. `/api/process` proto při chybě nebo chybějícím klíči vrací validní vzorový výstup pro vybraný scénář s příznakem demo režimu. Reálná AI odpověď se používá pouze tehdy, když projde strukturou `operationsAnalysisSchema`.

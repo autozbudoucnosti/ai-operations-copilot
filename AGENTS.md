@@ -9,6 +9,6 @@ Pokyny pro budoucí coding agenty v tomto projektu.
 - UI udržujte česky, business-facing a jednoduché.
 - Nedělejte z aplikace chatbot; výstup má být strukturovaný operations dashboard.
 - AI výstupy musí být strukturované a validované přes Zod schema.
-- Demo musí fungovat bez `OPENAI_API_KEY` pomocí záložního výstupu `sampleAIResult`.
+- Demo musí fungovat bez `OPENAI_API_KEY` pomocí záložního výstupu pro vybraný scénář.
 - `/api/process` musí vždy vracet validní JSON.
 - Před dokončením spusťte `npm run lint` a `npm run build` a opravte chyby.
